@@ -1,0 +1,102 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".PagoExitosoActivity">
+
+    <!-- Contenedor superior con título y subtítulo -->
+    <LinearLayout
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center"
+        android:background="@color/purple_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.4"> <!-- Ajustamos el alto -->
+
+        <!-- Imagen del ícono -->
+        <ImageView
+            android:id="@+id/imageViewSuccess"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_lightbulb"
+            android:contentDescription="Pago exitoso"
+            android:layout_gravity="center" />
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/titlePagoExitoso"
+            android:text="Pago exitoso"
+            style="@style/TitlePrimary"
+            android:layout_marginTop="16dp" />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:id="@+id/subtitlePagoExitoso"
+            android:text="El socio se registró el pago de su cuota"
+            style="@style/SubtitlePrimary"
+             />
+    </LinearLayout>
+
+    <!-- Contenedor de botones en el medio -->
+
+    <!-- Barra de navegación inferior -->
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintTop_toBottomOf="@id/top_container"
+        app:layout_constraintVertical_bias="0.791"
+        app:layout_constraintWidth_percent="0.8"
+        tools:layout_editor_absoluteX="41dp"> <!-- Ajustamos el alto -->
+
+        <Button
+            android:id="@+id/registrarNuevoPagoButton"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Registrar nuevo pago" />
+
+        <Button
+            android:id="@+id/imprimirCarnetButton"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Imprimir carnet" />
+
+        <!-- Enlace para cargar un nuevo socio -->
+        <TextView
+            android:id="@+id/cargarNuevoSocioText"
+            style="@style/ButtonSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Cargar un nuevo socio" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

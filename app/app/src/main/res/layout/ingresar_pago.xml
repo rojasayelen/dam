@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".IngresarPagoActivity">
+
+    <!-- Contenedor superior con título y subtítulo -->
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="416dp"
+        android:layout_height="167dp"
+        android:background="@color/purple_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.0">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TitlePrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresar pago" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            style="@style/SubtitlePrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is a short explanation about the new feature of the app." />
+    </LinearLayout>
+
+    <!-- Campo de búsqueda -->
+    <EditText
+        android:id="@+id/searchName"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="Nombre y Apellido"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+         />
+
+    <!-- Lista de socios -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintTop_toBottomOf="@id/searchName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- Socio 1 -->
+
+        <!-- Socio 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_persona" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/socio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Juan Lopez"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rol2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Socio"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_persona" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/socio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pedro Lopez"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rol1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Socio"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Campo de monto de cuota -->
+
+    <!-- Campo de número de cuota -->
+
+    <!-- Botón de pagar cuota -->
+    <EditText
+        android:id="@+id/cuotaAmount"
+        android:layout_height="57dp"
+        android:layout_marginTop="184dp"
+        android:hint="Monto de la cuota"
+        android:inputType="numberDecimal"
+        android:text="$ 32.000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchName"
+        style="@style/InputPrimary"
+        />
+
+    <EditText
+        android:id="@+id/cuotaNumber"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:hint="Número de cuota"
+        android:inputType="number"
+        android:text="5"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cuotaAmount" />
+
+    <!-- Botón de volver -->
+    <Button
+        android:id="@+id/payButton"
+        android:layout_marginTop="24dp"
+        android:text="Pagar cuota"
+        style="@style/ButtonPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cuotaNumber" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:text="Volver"
+        style="@style/ButtonSecondary"
+        app:layout_constraintTop_toBottomOf="@+id/payButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monto de la cuota"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="426dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero de cuota"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="515dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

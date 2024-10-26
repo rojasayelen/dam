@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <!-- Contenedor superior con título y descripción -->
+    <LinearLayout
+        android:id="@+id/container_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/purple_background"
+        android:gravity="center"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nueva Actividad"
+            style="@style/TitlePrimary"
+            />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is a short explanation about the new feature of the app."
+            style="@style/SubtitlePrimary"
+            />
+    </LinearLayout>
+
+    <!-- Campo Nombre Actividad -->
+
+    <!-- Campo Precio -->
+
+    <!-- Lista de actividades activas -->
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Nombre Actividad"
+        android:text="Natación"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_title"
+         />
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_marginTop="12dp"
+        android:hint="Precio"
+        android:inputType="number"
+        android:text="$32000"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+
+    <TextView
+        android:id="@+id/activitiesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Actividades activas"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceEditText" />
+
+    <ListView
+        android:id="@+id/activitiesListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintTop_toBottomOf="@id/activitiesTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25" />
+
+    <!-- Botón Guardar -->
+
+    <!-- Botón Volver -->
+
+    <Button
+        android:id="@+id/saveButton"
+        style="@style/ButtonPrimary"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Guardar Nueva Actividad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activitiesListView" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_marginTop="12dp"
+        android:text="Volver"
+        style="@style/ButtonSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

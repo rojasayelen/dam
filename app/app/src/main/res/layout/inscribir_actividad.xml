@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".InscribirSocioActivity">
+
+    <!-- Contenedor de título y descripción -->
+    <LinearLayout
+        android:id="@+id/container_violeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/purple_background"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"> <!-- Proporción de altura para el contenedor -->
+
+        <!-- Título -->
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:text="Inscribir en Actividad"
+            style="@style/TitlePrimary"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:text="This is a short explanation about the new feature of the app."
+            style="@style/SubtitlePrimary"
+            />
+    </LinearLayout>
+
+    <!-- Barra de búsqueda -->
+
+    <!-- Spinner para selección de actividad -->
+
+    <!-- Lista de actividades del socio -->
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_marginTop="32dp"
+        android:layout_height="wrap_content"
+        android:queryHint="Nombre y Apellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_violeta"
+        style="@style/InputPrimary"
+        />
+
+    <Spinner
+        android:id="@+id/activitySpinner"
+        style="@style/SelectPrimary"
+        android:layout_marginTop="32dp"
+        android:entries="@array/activities_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"/>
+
+    <!-- Botón Inscribir -->
+
+    <ListView
+        android:id="@+id/activitiesListView"
+        android:layout_width="329dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activitySpinner" />
+
+    <Button
+        android:id="@+id/inscribirButton"
+        android:text="Inscribir a actividad"
+        style="@style/ButtonPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activitiesListView"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Botón Volver -->
+    <Button
+        android:id="@+id/backButton"
+        android:text="Volver"
+        style="@style/ButtonSecondary"
+        app:layout_constraintTop_toBottomOf="@id/inscribirButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

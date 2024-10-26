@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".NuevoSocio">
+
+    <!-- Contenedor de fondo violeta -->
+    <LinearLayout
+        android:id="@+id/container_violeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/purple_background"
+        android:gravity="center"
+        android:elevation="4dp"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/title"
+            android:text="Nuevo Socio"
+            style="@style/TitlePrimary"
+            />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:id="@+id/subtitle"
+            android:text="This is a short explanation about the new feature of the app."
+            style="@style/SubtitlePrimary"/>
+    </LinearLayout>
+
+    <!-- Nombre -->
+
+    <!-- Apellido -->
+
+    <!-- DNI -->
+    <EditText
+        android:id="@+id/lastnameEditText"
+        android:hint="direccion"
+        android:text="Dirección"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="261dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Número de teléfono -->
+    <EditText
+        android:id="@+id/dniEditText"
+        android:layout_marginTop="32dp"
+        android:hint="DNI"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastnameEditText"
+         />
+
+    <!-- Botón Siguiente -->
+
+    <!-- Botón Volver -->
+
+    <Button
+        android:id="@+id/nextButton"
+        android:text="Siguiente"
+        style="@style/ButtonPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="576dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:text="Volver"
+        style="@style/ButtonSecondary"
+        app:layout_constraintTop_toBottomOf="@+id/nextButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apto Físico"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="491dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

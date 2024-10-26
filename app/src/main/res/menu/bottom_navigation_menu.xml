@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Cerrar sesión"/>
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home"
+        android:title="Inicio"/>
+    <item
+        android:id="@+id/action_vencimientos"
+        android:icon="@drawable/ic_vencimientos"
+        android:title="Vencimientos"/>
+</menu>

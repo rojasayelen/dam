@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".NuevoSocio">
+
+    <!-- Contenedor de fondo violeta -->
+    <LinearLayout
+        android:id="@+id/container_violeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@color/purple_background"
+        android:gravity="center"
+        android:elevation="4dp"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/title"
+            android:text="Nuevo Socio"
+            style="@style/TitlePrimary"/>
+
+        <!-- Subtítulo -->
+        <TextView
+            android:id="@+id/subtitle"
+            android:text="This is a short explanation about the new feature of the app."
+            style="@style/SubtitlePrimary"
+            />
+    </LinearLayout>
+
+    <!-- Nombre -->
+
+    <!-- Apellido -->
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_marginTop="32dp"
+        android:hint="Nombre"
+        android:text="Pedro"
+        style="@style/InputPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_violeta"
+        tools:ignore="NotSibling" />
+
+    <!-- DNI -->
+
+    <!-- Número de teléfono -->
+
+    <!-- Botón Siguiente -->
+    <EditText
+        android:id="@+id/lastnameEditText"
+        style="@style/InputPrimary"
+        android:layout_marginTop="32dp"
+        android:hint="Apellido"
+        android:text="Lopez"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+
+    <!-- Botón Volver -->
+
+    <EditText
+        android:id="@+id/dniEditText"
+        style="@style/InputPrimary"
+        android:layout_marginTop="32dp"
+        android:hint="DNI"
+        android:inputType="number"
+        android:text="1234567"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastnameEditText" />
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        style="@style/InputPrimary"
+        android:layout_marginTop="32dp"
+        android:hint="Número de teléfono"
+        android:inputType="phone"
+        android:text="12325689"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dniEditText" />
+
+    <Button
+        android:id="@+id/nextButton"
+        style="@style/ButtonPrimary"
+        android:layout_marginTop="104dp"
+        android:text="Siguiente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
+
+    <Button
+        android:id="@+id/backButton"
+        style="@style/ButtonSecondary"
+        android:layout_marginTop="4dp"
+        android:text="Volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nextButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

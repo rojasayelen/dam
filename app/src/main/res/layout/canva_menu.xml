@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#80000000"> <!-- Fondo con transparencia (#80 es el valor de opacidad) -->
+
+    <!-- Botón cerrar -->
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_close"
+        android:contentDescription="Cerrar menú"/>
+
+    <!-- contenedor de opciones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:backgroundTint="@android:color/white"
+        android:background="@drawable/rounded_corner"
+        android:elevation="4dp">
+
+
+        <!-- Categoría Dar de alta -->
+        <TextView
+            android:id="@+id/category_dar_de_alta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dar de alta"
+            android:textSize="16sp"
+            android:textColor="@color/purple_button"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:textStyle="bold"
+            android:layout_gravity="start"/>
+
+        <!-- Opción Nuevo Socio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nuevo_socio"
+                android:contentDescription="Nuevo Socio"/>
+
+            <TextView
+                android:id="@+id/option_new_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Nuevo Socio"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Opción No Socio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_no_socio"
+                android:contentDescription="No Socio"/>
+
+            <TextView
+                android:id="@+id/option_no_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="No Socio"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Categoría Cuotas por vencer -->
+        <TextView
+            android:id="@+id/category_cuotas_por_vencer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuotas por vencer"
+            android:textSize="16sp"
+            android:textColor="@color/purple_button"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:textStyle="bold"
+            android:layout_gravity="start"/>
+
+        <!-- Opción Buscar clientes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_buscar_clientes"
+                android:contentDescription="Buscar clientes"/>
+
+            <TextView
+                android:id="@+id/option_buscar_clientes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Buscar clientes"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Categoría Pagos -->
+        <TextView
+            android:id="@+id/category_pagos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagos"
+            android:textSize="16sp"
+            android:textColor="@color/purple_button"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:textStyle="bold"
+            android:layout_gravity="start"/>
+
+        <!-- Opción Ingresar nuevo pago -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_ingresar_pago"
+                android:contentDescription="Ingresar nuevo pago"/>
+
+            <TextView
+                android:id="@+id/option_ingresar_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Ingresar nuevo pago"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Categoría Impresiones -->
+
+        <!-- Opción Carnet de socio -->
+        <TextView
+            android:id="@+id/category_impresiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:text="Impresiones"
+            android:textColor="@color/purple_button"
+            android:textSize="16sp"
+            android:paddingLeft="8dp"
+            android:textStyle="bold"
+            android:layout_gravity="start" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_carnet_socio"
+                android:contentDescription="Carnet de socio"/>
+
+            <TextView
+                android:id="@+id/option_carnet_socio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Carnet de socio"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Opción Formulario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_formulario"
+                android:contentDescription="Formulario"/>
+
+            <TextView
+                android:id="@+id/option_formulario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Formulario"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Añadir más opciones aquí siguiendo la misma estructura -->
+
+</LinearLayout>
