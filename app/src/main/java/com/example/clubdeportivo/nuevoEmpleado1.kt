@@ -1,20 +1,44 @@
 package com.example.clubdeportivo
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.widget.EditText
+
 
 class nuevoEmpleado1 : AppCompatActivity() {
+    private lateinit var dbHelper: DataBaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_nuevo_empleado1)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        dbHelper = DataBaseHelper(this)
+
+        val empleadoName = findViewById<EditText>(R.id.editTextName)
+        val empleadoSurname = findViewById<EditText>(R.id.editTextLastName)
+        val empleadoDNI = findViewById<EditText>(R.id.editTextDNI)
+        val empleadoTel = findViewById<EditText>(R.id.editTextPhoneNumber)
+
+        val buttonNext = findViewById<Button>(R.id.buttonNext)
+
+        buttonNext.setOnClickListener{
+            val name = empleadoName.text.toString()
+            val surname = empleadoSurname.text.toString()
+            val DNI = empleadoDNI.text.toString()
+            val Tel = empleadoTel.text.toString()
+
+            if( name.isNotEmpty() &&
+                surname.isNotEmpty() &&
+                DNI.isNotEmpty() &&
+                Tel.isNotEmpty()
+                ){
+                val success = dbHelper.insertar
+            }
         }
+
     }
+
+
 }
+
