@@ -1,9 +1,8 @@
 package com.example.clubdeportivo
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.EditText
+import com.example.clubdeportivo.com.example.clubdeportivo.DataBaseHelper
 
 
 class nuevoEmpleado1 : AppCompatActivity() {
@@ -15,11 +14,10 @@ class nuevoEmpleado1 : AppCompatActivity() {
 
         dbHelper = DataBaseHelper(this)
 
-        val empleadoName = findViewById<EditText>(R.id.editTextName)
+        /*val empleadoName = findViewById<EditText>(R.id.editTextName)
         val empleadoSurname = findViewById<EditText>(R.id.editTextLastName)
         val empleadoDNI = findViewById<EditText>(R.id.editTextDNI)
         val empleadoTel = findViewById<EditText>(R.id.editTextPhoneNumber)
-
         val buttonNext = findViewById<Button>(R.id.buttonNext)
 
         buttonNext.setOnClickListener{
@@ -33,9 +31,9 @@ class nuevoEmpleado1 : AppCompatActivity() {
                 DNI.isNotEmpty() &&
                 Tel.isNotEmpty()
                 ){
-                val success = dbHelper.insertar
+
             }
-        }
+        }*/
 
     }
 

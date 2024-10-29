@@ -1,4 +1,4 @@
-package com.example.clubdeportivo
+package com.example.clubdeportivo.com.example.clubdeportivo
 
 import android.content.ContentValues
 import android.content.Context
@@ -90,7 +90,7 @@ class DataBaseHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME
                 $COL_ID_EMPLEADO INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 $COL_USUARIO TEXT NOT NULL,
                 $COL_PASS TEXT NOT NULL,
-                $COL_PUESTO TEXT NOT NULL,
+                $COL_PUESTO TEXT,
                 FOREIGN KEY ($COL_ID_PERSONA) REFERENCES $TABLE_PERSONA ($COL_ID_PERSONA)
                     ON DELETE CASCADE
                     ON UPDATE CASCADE
@@ -144,6 +144,7 @@ class DataBaseHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME
             )
             """.trimIndent()
 
+
             //Creacion de las tablas
             db.execSQL(createTablePersona)
             db.execSQL(createTableEmpleado)
@@ -159,6 +160,18 @@ class DataBaseHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME
         //
     }
 
+    fun verificarUsuario(username: String, password: String): Boolean {
+        val db = this.readableDatabase
+        val query = "SELECT * FROM Empleado WHERE Usuario = ? AND Contrasena = ?"
+        val cursor = db.rawQuery(query, arrayOf(username, password))
+
+        val usuarioExiste = cursor.count > 0
+        cursor.close()
+        db.close()
+
+        return usuarioExiste
+    }
+
     fun insertarAdministrador(db: SQLiteDatabase) {
         // Insertar Persona administrador
         val valuesPersona = ContentValues().apply {
@@ -172,9 +185,14 @@ class DataBaseHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME
             put(COL_FECHA_ALTA, "2024-05-19")
             put(COL_BAJA_PERSONA, 0)
         }
+    }
 
-
-
+    fun insertarCredenciales(db: SQLiteDatabase){
+        val credenciales = ContentValues().apply {
+            put(COL_ID_PERSONA, 1)
+            put(COL_USUARIO, "ADMIN" )
+            put(COL_PASS, "ADMIN")
+        }
     }
 }
 

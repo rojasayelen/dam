@@ -13,8 +13,18 @@
         android:theme="@style/Theme.ClubDeportivo"
         tools:targetApi="31">
         <activity
+            android:name=".carnetSocio"
+            android:exported="false" />
+        <activity
+            android:name=".nuevoEmpleado1"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
