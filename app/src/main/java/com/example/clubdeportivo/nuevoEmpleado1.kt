@@ -1,8 +1,6 @@
 package com.example.clubdeportivo
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.clubdeportivo.com.example.clubdeportivo.DataBaseHelper
 
 
 class nuevoEmpleado1 : AppCompatActivity() {
