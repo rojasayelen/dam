@@ -1,104 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    android:id="@+id/main"
-    >
+    android:fitsSystemWindows="true">
 
-    <!-- Título -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/imageViewProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="188dp"
-        android:contentDescription="logo"
-        android:src="@drawable/icon_db"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background"
+            android:id="@+id/main">
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@android:color/white"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextUsername"
-        app:layout_constraintWidth_percent="0.8" />
+            <!-- Título -->
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Iniciar sesión"
-        style="@style/ButtonPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
-         />
+            <ImageView
+                android:id="@+id/imageViewProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="188dp"
+                android:contentDescription="logo"
+                android:src="@drawable/icon_db"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/white"
-        android:hint="Usuario"
-        android:text="Admin"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewDescription"
-        app:layout_constraintWidth_percent="0.8" />
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@android:color/white"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:text="admin"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextUsername"
+                app:layout_constraintWidth_percent="0.8" />
 
-    <TextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_height="wrap_content"
-        android:text="This is a short explanation about the new feature of the app."
-        style="@style/SubtitlePrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Iniciar sesión"
+                style="@style/ButtonPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Club Deportivo"
-        style="@style/TitlePrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewProfile" />
+            <EditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@android:color/white"
+                android:hint="Usuario"
+                android:text="Admin"
+                android:inputType="text"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescription"
+                app:layout_constraintWidth_percent="0.8" />
 
-    <!-- Descripción -->
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.8"
+                android:layout_height="wrap_content"
+                android:text="This is a short explanation about the new feature of the app."
+                style="@style/SubtitlePrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
 
-    <!-- Campo de texto para el usuario -->
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Club Deportivo"
+                style="@style/TitlePrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewProfile" />
 
-    <!-- Campo de texto para la contraseña -->
 
-    <!-- Botón para iniciar sesión -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

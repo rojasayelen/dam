@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/actividades"
     android:background="@drawable/gradient_background"
     tools:context=".ActividadesActivity">
 
@@ -50,6 +51,7 @@
     <!-- Bottom Navigation (parte inferior) -->
     <Button
         android:id="@+id/button_inscribir_socio"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:background="@drawable/rounded_button_background"
