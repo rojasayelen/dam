@@ -49,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
             android:text="18/08/2024" />
 
         <TextView
@@ -76,6 +78,8 @@
             style="@style/InputPrimary"
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:clickable="true"
+            android:focusable="false"
             android:inputType="date"
             android:text="18/08/2024" />
 
@@ -211,24 +215,24 @@
         android:id="@+id/btn_imprimir_carnet"
         style="@style/ButtonPrimary"
         android:layout_height="wrap_content"
-        android:layout_marginTop="592dp"
+        android:layout_marginTop="612dp"
         android:text="Siguiente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_volver"
+        style="@style/ButtonSecondary"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="644dp"
-        style="@style/ButtonSecondary"
+        android:layout_marginTop="660dp"
         android:backgroundTint="@android:color/transparent"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:text="Volver"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
