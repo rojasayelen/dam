@@ -34,5 +34,11 @@ class dashboard : AppCompatActivity() {
             val intent = Intent(this, ActividadesActivity::class.java)
             startActivity(intent)
         }
+
+        val btnImprimirCarnet = findViewById<Button>(R.id.btn_imprimir_carnet)
+        btnImprimirCarnet.setOnClickListener {
+            val intent = Intent(this, carnetSocio::class.java)
+            startActivity(intent)
+        }
     }
 }
