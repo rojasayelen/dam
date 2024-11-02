@@ -44,8 +44,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                // Mostrar mensaje de error
-                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                // Redirigir a la pantalla de error de inicio de sesión
+                val intent = Intent(this, LoginError::class.java)
+                startActivity(intent)
             }
         }
         scrollView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
@@ -65,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-
     private fun insertarAdministradorSiNoExiste(db: SQLiteDatabase) {
         // Verificar si el administrador ya existe en Persona
         val cursorPersona = db.rawQuery("SELECT * FROM Persona WHERE Nombre = 'ADMINISTRADOR'", null)
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         cursorPersona.close()
 
         // Verificar si las credenciales de administrador ya existen en Empleado
-        val cursorEmpleado = db.rawQuery("SELECT * FROM Empleado WHERE Usuario = 'ADMIN'", null)
+        val cursorEmpleado = db.rawQuery("SELECT * FROM Empleado WHERE Usuario = 'Admin'", null)
         if (cursorEmpleado.count == 0) {
             // Si no existe, insertar en Empleado
             dbHelper.insertarCredenciales(db)

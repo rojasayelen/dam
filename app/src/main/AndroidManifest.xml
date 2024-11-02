@@ -17,6 +17,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".LoginError"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
             android:name=".nuevoEmpleado1"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

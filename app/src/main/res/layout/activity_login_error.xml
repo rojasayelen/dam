@@ -52,13 +52,13 @@
 
     <Button
         android:id="@+id/btn_connect"
-        android:layout_height="wrap_content"
         style="@style/ButtonPrimary"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="100dp"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:text="@string/button_volver_formulario"
+        android:text="Volver a intentar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
