@@ -14,7 +14,7 @@
     <Button
         android:id="@+id/btn_imprimir_formulario"
         style="@style/ButtonNoCorners"
-        android:layout_width="373dp"
+        android:layout_width="355dp"
         android:layout_height="78dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="164dp"
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/btn_nuevo_socio"
         style="@style/ButtonNoCorners"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="78dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="16dp"
@@ -58,7 +58,7 @@
     <Button
         android:id="@+id/btn_consultar_vencimiento"
         style="@style/ButtonNoCorners"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="78dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="16dp"
@@ -79,7 +79,7 @@
     <Button
         android:id="@+id/btn_nuevo_pago"
         style="@style/ButtonNoCorners"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="78dp"
         android:layout_marginTop="384dp"
         android:layout_marginEnd="16dp"
@@ -100,7 +100,7 @@
     <Button
         android:id="@+id/btn_actividades"
         style="@style/ButtonNoCorners"
-        android:layout_width="180dp"
+        android:layout_width="170dp"
         android:layout_height="78dp"
         android:layout_marginTop="384dp"
         android:layout_marginEnd="16dp"
@@ -121,7 +121,7 @@
     <Button
         android:id="@+id/btn_imprimir_carnet"
         style="@style/ButtonNoCorners"
-        android:layout_width="373dp"
+        android:layout_width="355dp"
         android:layout_height="78dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="490dp"

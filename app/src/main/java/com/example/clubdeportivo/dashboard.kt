@@ -22,5 +22,11 @@ class dashboard : AppCompatActivity() {
             val intent = Intent(this, vencimientosCuota::class.java)
             startActivity(intent)
         }
+
+        val btnIngresarpago = findViewById<Button>(R.id.btn_nuevo_pago)
+        btnIngresarpago.setOnClickListener {
+            val intent = Intent(this, IngresarPagoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

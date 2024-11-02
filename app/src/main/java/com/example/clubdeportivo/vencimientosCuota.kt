@@ -3,16 +3,13 @@ package com.example.clubdeportivo
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.clubdeportivo.R
 import java.text.SimpleDateFormat
 import java.util.*
 
 class vencimientosCuota : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_vencimientos_cuota)
 
         val editTextDesde = findViewById<EditText>(R.id.editTextDesde)
