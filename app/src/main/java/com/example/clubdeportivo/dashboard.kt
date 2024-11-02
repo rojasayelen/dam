@@ -1,20 +1,44 @@
 package com.example.clubdeportivo
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Encuentra el botón por su ID y configura el click listener
+        val btnNuevoSocio = findViewById<Button>(R.id.btn_nuevo_socio)
+        btnNuevoSocio.setOnClickListener {
+            val intent = Intent(this, NuevoSocio::class.java)
+            startActivity(intent)
+        }
+
+        val btnvencimientosCuota = findViewById<Button>(R.id.btn_consultar_vencimiento)
+        btnvencimientosCuota.setOnClickListener {
+            val intent = Intent(this, vencimientosCuota::class.java)
+            startActivity(intent)
+        }
+
+        val btnIngresarpago = findViewById<Button>(R.id.btn_nuevo_pago)
+        btnIngresarpago.setOnClickListener {
+            val intent = Intent(this, IngresarPagoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnActividades = findViewById<Button>(R.id.btn_actividades)
+        btnActividades.setOnClickListener {
+            val intent = Intent(this, ActividadesActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnImprimirCarnet = findViewById<Button>(R.id.btn_imprimir_carnet)
+        btnImprimirCarnet.setOnClickListener {
+            val intent = Intent(this, carnetSocio::class.java)
+            startActivity(intent)
         }
     }
 }

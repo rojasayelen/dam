@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ingresarPago"
     android:background="@drawable/gradient_background"
     tools:context=".IngresarPagoActivity">
 
@@ -16,7 +17,7 @@
         android:background="@color/purple_background"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp"
+        android:padding="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -135,11 +136,17 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Campo de monto de cuota -->
 
-    <!-- Campo de número de cuota -->
+    <!-- Label "Monto de la cuota" -->
+    <TextView
+        android:id="@+id/labelCuotaAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monto de la cuota"
+        app:layout_constraintStart_toStartOf="@id/cuotaAmount"
+        app:layout_constraintBottom_toTopOf="@id/cuotaAmount"
+        android:layout_marginBottom="4dp" />
 
-    <!-- Botón de pagar cuota -->
     <EditText
         android:id="@+id/cuotaAmount"
         android:layout_height="57dp"
@@ -154,6 +161,15 @@
         style="@style/InputPrimary"
         />
 
+    <!-- Label "Número de cuota" -->
+    <TextView
+        android:id="@+id/labelCuotaNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de cuota"
+        app:layout_constraintStart_toStartOf="@id/cuotaNumber"
+        app:layout_constraintBottom_toTopOf="@id/cuotaNumber"
+        android:layout_marginBottom="4dp" />
     <EditText
         android:id="@+id/cuotaNumber"
         android:layout_height="56dp"
@@ -185,23 +201,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Monto de la cuota"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="426dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Numero de cuota"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="515dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
