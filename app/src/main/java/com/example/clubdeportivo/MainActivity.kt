@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.graphics.Rect
+import android.view.ViewTreeObserver
+import android.widget.ScrollView
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val scrollView = findViewById<ScrollView>(R.id.scrollView)
         // Inicializar dbHelper
         dbHelper = DataBaseHelper(this)
 
@@ -45,7 +48,23 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
         }
+        scrollView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                val r = Rect()
+                scrollView.getWindowVisibleDisplayFrame(r)
+                val screenHeight = scrollView.rootView.height
+                val keypadHeight = screenHeight - r.bottom
+
+                // Si el teclado está visible (ocupa más del 15% de la pantalla)
+                if (keypadHeight > screenHeight * 0.15) {
+                    scrollView.scrollTo(0, scrollView.bottom)
+                } else {
+                    scrollView.scrollTo(0, 0)
+                }
+            }
+        })
     }
+
 
     private fun insertarAdministradorSiNoExiste(db: SQLiteDatabase) {
         // Verificar si el administrador ya existe en Persona
