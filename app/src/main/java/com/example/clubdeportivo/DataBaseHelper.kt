@@ -74,7 +74,7 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 $COL_NOMBRE TEXT NOT NULL,
                 $COL_APELLIDO TEXT NOT NULL,
                 $COL_DIRECCION TEXT NOT NULL,
-                $COL_TELEFONO INTEGER NOT NULL,
+                $COL_TELEFONO TEXT NOT NULL,  -- Cambiado a TEXT
                 $COL_EMAIL TEXT NOT NULL,
                 $COL_APTO_FISICO BOOLEAN NOT NULL,
                 $COL_FECHA_ALTA TEXT NOT NULL,
@@ -201,6 +201,46 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         db.insert(TABLE_EMPLEADO, null, valuesEmpleado)
     }
+
+    fun socioExiste(dni: Int): Boolean {
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_PERSONA WHERE $COL_DNI = ?"
+        val cursor = db.rawQuery(query, arrayOf(dni.toString()))
+
+        val existe = cursor.count > 0
+        cursor.close()
+        db.close()
+
+        return existe
+    }
+
+    fun insertarNuevoSocio(dni: Int, nombre: String, apellido: String, direccion: String, telefono: String, email: String, aptoFisico: Boolean, fechaAlta: String): Long {
+
+        val db = writableDatabase
+        val valuesPersona = ContentValues().apply {
+            put(COL_DNI, dni)
+            put(COL_NOMBRE, nombre)
+            put(COL_APELLIDO, apellido)
+            put(COL_DIRECCION, direccion)
+            put(COL_TELEFONO, telefono)
+            put(COL_EMAIL, email)
+            put(COL_APTO_FISICO, if (aptoFisico) 1 else 0)
+            put(COL_FECHA_ALTA, fechaAlta)
+            put(COL_BAJA_PERSONA, 0)
+        }
+        val idPersona = db.insert(TABLE_PERSONA, null, valuesPersona)
+
+        return if (idPersona != -1L) {
+            val valuesSocio = ContentValues().apply {
+                put(COL_ID_PERSONA, idPersona)
+            }
+            db.insert(TABLE_SOCIO, null, valuesSocio)
+        } else {
+            -1
+        }
+    }
+
+
 }
 
 

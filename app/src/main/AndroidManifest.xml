@@ -21,6 +21,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
         <activity
+            android:name=".SocioRegistradoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".nuevoEmpleado1"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
@@ -44,7 +48,10 @@
             android:name=".IngresarPagoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
+        <activity
+            android:name=".SocioExistente"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ActividadesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
