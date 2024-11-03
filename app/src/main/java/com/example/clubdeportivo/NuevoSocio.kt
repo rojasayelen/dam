@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ class NuevoSocio : AppCompatActivity() {
         val addressEditText = findViewById<EditText>(R.id.addressEditText)
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val aptPhysicalSwitch = findViewById<Switch>(R.id.aptPhysicalSwitch)
+        val socioSpinner = findViewById<Spinner>(R.id.socioSpinner)
 
         // Verificación automática del DNI
         dniEditText.addTextChangedListener(object : TextWatcher {
@@ -58,6 +60,7 @@ class NuevoSocio : AppCompatActivity() {
             val direccion = addressEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
             val aptoFisico = aptPhysicalSwitch.isChecked
+            val esSocio = socioSpinner.selectedItem.toString() == "Socio"
 
             // Validar los datos obligatorios y mostrar mensajes específicos
             when {
@@ -83,15 +86,15 @@ class NuevoSocio : AppCompatActivity() {
                     Toast.makeText(this, "Debes marcar el campo 'Apto Físico' para registrar el socio", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
-                    // Insertar el nuevo socio en la base de datos
-                    val idSocio = dbHelper.insertarNuevoSocio(dni, nombre, apellido, direccion, telefono, email, aptoFisico, "2024-05-19")
+                    // Inserción en la base de datos
+                    val fechaAlta = dbHelper.obtenerFechaActual()
+                    val idSocio = dbHelper.insertarPersona(dni, nombre, apellido, direccion, telefono, email, aptoFisico, fechaAlta, esSocio)
 
                     if (idSocio > 0) {
-                        // Navegar a la pantalla de confirmación
                         val intent = Intent(this, SocioRegistradoActivity::class.java)
-                        intent.putExtra("NOMBRE_SOCIO", "$nombre $apellido") // Pasar el nombre completo
+                        intent.putExtra("NOMBRE_SOCIO", "$nombre $apellido")
                         startActivity(intent)
-                        finish() // Cierra la actividad actual
+                        finish()
                     } else {
                         Toast.makeText(this, "Error al registrar el socio", Toast.LENGTH_SHORT).show()
                     }

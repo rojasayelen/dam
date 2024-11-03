@@ -256,9 +256,20 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return existe
     }
 
-    fun insertarNuevoSocio(dni: Int, nombre: String, apellido: String, direccion: String, telefono: String, email: String, aptoFisico: Boolean, fechaAlta: String): Long {
-
+    fun insertarPersona(
+        dni: Int,
+        nombre: String,
+        apellido: String,
+        direccion: String,
+        telefono: String,
+        email: String,
+        aptoFisico: Boolean,
+        fechaAlta: String,
+        esSocio: Boolean // Parámetro para verificar si es socio o no
+    ): Long {
         val db = writableDatabase
+
+        // Inserción en la tabla Persona
         val valuesPersona = ContentValues().apply {
             put(COL_DNI, dni)
             put(COL_NOMBRE, nombre)
@@ -272,14 +283,29 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         val idPersona = db.insert(TABLE_PERSONA, null, valuesPersona)
 
+        // Verificar si la inserción en Persona fue exitosa
         return if (idPersona != -1L) {
-            val valuesSocio = ContentValues().apply {
-                put(COL_ID_PERSONA, idPersona)
+            if (esSocio) {
+                // Inserta en la tabla Socio si es socio
+                val valuesSocio = ContentValues().apply {
+                    put(COL_ID_PERSONA, idPersona)
+                }
+                db.insert(TABLE_SOCIO, null, valuesSocio)
+            } else {
+                // Inserta en la tabla NoSocio si no es socio
+                val valuesNoSocio = ContentValues().apply {
+                    put(COL_ID_PERSONA, idPersona)
+                }
+                db.insert(TABLE_NO_SOCIO, null, valuesNoSocio)
             }
-            db.insert(TABLE_SOCIO, null, valuesSocio)
         } else {
-            -1
+            -1 // Indica un error en la inserción
         }
+    }
+
+    fun obtenerFechaActual(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return dateFormat.format(Calendar.getInstance().time)
     }
 
     fun buscarSociosPorNombreApellido(nombreApellido: String): Cursor {
