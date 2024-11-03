@@ -35,6 +35,7 @@ class IngresarPagoActivity : AppCompatActivity() {
         payButton = findViewById(R.id.payButton)
         backButton = findViewById(R.id.backButton) // Obtener referencia al botón de "Volver"
 
+
         // Configurar RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         socios = dbHelper.obtenerTodosLosSocios()
