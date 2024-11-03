@@ -29,6 +29,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".PagoExitosoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".nuevoEmpleado2"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

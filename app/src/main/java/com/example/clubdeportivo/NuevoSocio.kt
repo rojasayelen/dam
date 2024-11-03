@@ -18,7 +18,7 @@ class NuevoSocio : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.nuevo_socio_1) // Asegúrate de que el nombre del archivo XML esté correcto
+        setContentView(R.layout.nuevo_socio_1)
 
         dbHelper = DataBaseHelper(this)
 
@@ -54,7 +54,7 @@ class NuevoSocio : AppCompatActivity() {
             val dni = dniEditText.text.toString().toIntOrNull()
             val nombre = nameEditText.text.toString().trim()
             val apellido = lastnameEditText.text.toString().trim()
-            val telefono = phoneEditText.text.toString().trim() // Cambiado a String
+            val telefono = phoneEditText.text.toString().trim()
             val direccion = addressEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
             val aptoFisico = aptPhysicalSwitch.isChecked
@@ -89,6 +89,7 @@ class NuevoSocio : AppCompatActivity() {
                     if (idSocio > 0) {
                         // Navegar a la pantalla de confirmación
                         val intent = Intent(this, SocioRegistradoActivity::class.java)
+                        intent.putExtra("NOMBRE_SOCIO", "$nombre $apellido") // Pasar el nombre completo
                         startActivity(intent)
                         finish() // Cierra la actividad actual
                     } else {
