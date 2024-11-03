@@ -61,7 +61,8 @@
         app:layout_constraintTop_toBottomOf="@id/top_container"
         app:layout_constraintVertical_bias="0.791"
         app:layout_constraintWidth_percent="0.8"
-        tools:layout_editor_absoluteX="41dp"> <!-- Ajustamos el alto -->
+        tools:layout_editor_absoluteX="41dp"
+        tools:ignore="MissingConstraints"> <!-- Ajustamos el alto -->
 
         <Button
             android:id="@+id/registrarNuevoPagoButton"

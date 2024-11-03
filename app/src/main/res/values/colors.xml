@@ -6,4 +6,7 @@
     <color name="purple_button">#6B4EFF</color>
     <color name="gris">#EBEBEB</color>
     <color name="capa1">#B33D3D57</color>
+    <color name="selected_item_background">#958BB3</color>
+    <color name="default_item_background">#FFFFFF</color>
+
 </resources>

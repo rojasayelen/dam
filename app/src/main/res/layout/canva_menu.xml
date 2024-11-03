@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="280dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="10dp"
     android:background="#80000000"> <!-- Fondo con transparencia (#80 es el valor de opacidad) -->
 
     <!-- Botón cerrar -->
