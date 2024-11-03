@@ -1,6 +1,7 @@
 package com.example.clubdeportivo
 
 import Socio
+import Vencimiento
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -407,4 +408,33 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return pagada
     }
 
+    fun obtenerVencimientosEntreFechas(fechaDesde: Long, fechaHasta: Long): List<Vencimiento> {
+        val vencimientos = mutableListOf<Vencimiento>()
+        val db = this.readableDatabase
+        val query = """
+        SELECT c.$COL_ID_CUOTA, c.$COL_NRO_CUOTA, c.$COL_FECHA_VENCIMIENTO, 
+               p.$COL_NOMBRE || ' ' || p.$COL_APELLIDO AS socioNombre
+        FROM $TABLE_CUOTA AS c
+        JOIN $TABLE_PERSONA AS p ON c.$COL_FK_PERSONA = p.$COL_ID_PERSONA
+        WHERE c.$COL_FECHA_VENCIMIENTO BETWEEN ? AND ?
+    """
+        val cursor = db.rawQuery(query, arrayOf(fechaDesde.toString(), fechaHasta.toString()))
+
+        if (cursor.moveToFirst()) {
+            do {
+                val idCuota = cursor.getInt(cursor.getColumnIndexOrThrow(COL_ID_CUOTA))
+                val nroCuota = cursor.getInt(cursor.getColumnIndexOrThrow(COL_NRO_CUOTA))
+                val fechaVencimiento = cursor.getLong(cursor.getColumnIndexOrThrow(COL_FECHA_VENCIMIENTO))
+                val socioNombre = cursor.getString(cursor.getColumnIndexOrThrow("socioNombre"))
+
+                // Agregar el vencimiento a la lista
+                vencimientos.add(Vencimiento(idCuota, nroCuota, fechaVencimiento, socioNombre))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return vencimientos
+    }
 }

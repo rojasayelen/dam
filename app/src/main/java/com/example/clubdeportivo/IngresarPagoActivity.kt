@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,10 @@ class IngresarPagoActivity : AppCompatActivity() {
     private lateinit var searchNameEditText: EditText
     private lateinit var payButton: Button
     private lateinit var backButton: Button
+    private lateinit var cuotaAmountEditText: EditText
+    private lateinit var cuotaNumberEditText: EditText
+    private lateinit var labelMonto: TextView
+    private lateinit var labelCuotaNumber: TextView
     private lateinit var dbHelper: DataBaseHelper
     private var socios: List<Socio> = listOf()
     private var socioSeleccionado: Socio? = null
@@ -30,11 +36,16 @@ class IngresarPagoActivity : AppCompatActivity() {
         setContentView(R.layout.ingresar_pago)
 
         dbHelper = DataBaseHelper(this)
+
+        // Inicialización de los elementos de la interfaz
         recyclerView = findViewById(R.id.recyclerViewSocios)
         searchNameEditText = findViewById(R.id.searchName)
         payButton = findViewById(R.id.payButton)
-        backButton = findViewById(R.id.backButton) // Obtener referencia al botón de "Volver"
-
+        backButton = findViewById(R.id.backButton)
+        cuotaAmountEditText = findViewById(R.id.cuotaAmount)
+        cuotaNumberEditText = findViewById(R.id.cuotaNumber)
+        labelMonto = findViewById(R.id.labelCuotaAmount)
+        labelCuotaNumber = findViewById(R.id.labelCuotaNumber)
 
         // Configurar RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -43,12 +54,14 @@ class IngresarPagoActivity : AppCompatActivity() {
         // Configurar el adaptador con el listener
         socioAdapter = SocioAdapter(socios) { socio ->
             socioSeleccionado = socio
+            actualizarInterfazSegunTipo(socio.tipo)
             payButton.isEnabled = true // Habilitar el botón cuando se selecciona un socio
             payButton.text = "Pagar - ${socio.nombre} ${socio.apellido}"
             Log.d("IngresarPagoActivity", "Socio seleccionado: ${socio.nombre} ${socio.apellido}")
         }
         recyclerView.adapter = socioAdapter
 
+        // Filtrado de socios según el texto ingresado
         searchNameEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -73,6 +86,21 @@ class IngresarPagoActivity : AppCompatActivity() {
         }
     }
 
+    // Método para actualizar la interfaz según el tipo de usuario seleccionado
+    private fun actualizarInterfazSegunTipo(tipo: String) {
+        if (tipo == "No Socio") {
+            labelMonto.text = "Monto diario"
+            cuotaAmountEditText.hint = "Monto diario" // Cambia el hint dinámicamente
+            labelCuotaNumber.visibility = View.GONE
+            cuotaNumberEditText.visibility = View.GONE
+        } else {
+            labelMonto.text = "Monto de la cuota"
+            cuotaAmountEditText.hint = "Monto de la cuota" // Cambia el hint dinámicamente
+            labelCuotaNumber.visibility = View.VISIBLE
+            cuotaNumberEditText.visibility = View.VISIBLE
+        }
+    }
+
     private fun filtrarSocios(query: String) {
         val sociosFiltrados = socios.filter { socio ->
             socio.nombre.contains(query, ignoreCase = true) || socio.apellido.contains(query, ignoreCase = true)
@@ -88,12 +116,16 @@ class IngresarPagoActivity : AppCompatActivity() {
             add(Calendar.DAY_OF_YEAR, diasVencimiento)
         }.time
 
-        val numeroCuota = findViewById<EditText>(R.id.cuotaNumber).text.toString().toIntOrNull() ?: 1
+        val numeroCuota = if (socio.tipo == "Socio") {
+            cuotaNumberEditText.text.toString().toIntOrNull() ?: 1
+        } else {
+            null // No se requiere número de cuota para No Socio
+        }
 
-        if (dbHelper.cuotaPagada(socio.idPersona, numeroCuota)) {
+        if (socio.tipo == "Socio" && dbHelper.cuotaPagada(socio.idPersona, numeroCuota ?: 1)) {
             Toast.makeText(this, "Esta cuota ya ha sido pagada.", Toast.LENGTH_LONG).show()
         } else {
-            val idCuota = dbHelper.registrarCuota(socio.idPersona, fechaVencimiento, numeroCuota)
+            val idCuota = dbHelper.registrarCuota(socio.idPersona, fechaVencimiento, numeroCuota ?: 1)
             dbHelper.registrarPago(idCuota, fechaPago)
 
             Toast.makeText(this, "Pago registrado exitosamente para ${socio.nombre}.", Toast.LENGTH_SHORT).show()

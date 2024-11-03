@@ -45,11 +45,19 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".VencimientoDeCuota1"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".dashboard"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".NuevoSocio"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NoSocioRegistrado"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

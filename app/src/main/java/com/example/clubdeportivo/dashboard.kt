@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class dashboard : AppCompatActivity() {
 
@@ -42,7 +44,7 @@ class dashboard : AppCompatActivity() {
 
         val btnConsultarVencimiento = findViewById<Button>(R.id.btn_consultar_vencimiento)
         btnConsultarVencimiento.setOnClickListener {
-            val intent = Intent(this, vencimientosCuota::class.java)
+            val intent = Intent(this, VencimientoDeCuota1::class.java)
             startActivity(intent)
         }
 
@@ -62,6 +64,48 @@ class dashboard : AppCompatActivity() {
         btnImprimirCarnet.setOnClickListener {
             val intent = Intent(this, carnetSocio::class.java)
             startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.option_new_member).setOnClickListener {
+            startActivity(Intent(this, NuevoSocio::class.java))
+        }
+
+        findViewById<TextView>(R.id.option_no_member).setOnClickListener {
+            startActivity(Intent(this, NuevoSocio::class.java))
+        }
+
+        findViewById<TextView>(R.id.VencimientoCliente).setOnClickListener {
+            startActivity(Intent(this, VencimientoDeCuota1::class.java))
+        }
+
+        findViewById<TextView>(R.id.option_ingresar_pago).setOnClickListener {
+            startActivity(Intent(this, IngresarPagoActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.option_carnet_socio).setOnClickListener {
+            startActivity(Intent(this, carnetSocio::class.java))
+        }
+
+        // Configurar el BottomNavigationView
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_logout -> {
+                    // Navega a la actividad de inicio de sesión
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()  // Cierra la actividad actual para no volver al presionar atrás
+                    true
+                }
+
+                R.id.action_vencimientos -> {
+                    // Navega a la actividad de Vencimientos
+                    val intent = Intent(this, VencimientoDeCuota1::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
 

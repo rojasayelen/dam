@@ -118,7 +118,7 @@
                 android:contentDescription="Buscar clientes"/>
 
             <TextView
-                android:id="@+id/option_buscar_clientes"
+                android:id="@+id/VencimientoCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

@@ -43,7 +43,7 @@
                 <!-- Subtítulo -->
                 <TextView
                     android:id="@+id/subtitle"
-                    android:text="En esta pantalla puedes dar de alta tanto un socio como un No SO"
+                    android:text="En esta pantalla puedes dar de alta tanto un socio como un no socio"
                     style="@style/SubtitlePrimary"/>
             </LinearLayout>
 

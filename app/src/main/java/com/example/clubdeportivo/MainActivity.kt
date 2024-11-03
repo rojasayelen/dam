@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //this.deleteDatabase("ClubDeportivo")
+        this.deleteDatabase("ClubDeportivo")
         val scrollView = findViewById<ScrollView>(R.id.scrollView)
         // Inicializar dbHelper
         dbHelper = DataBaseHelper(this)

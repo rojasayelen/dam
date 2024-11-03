@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SocioRegistradoActivity : AppCompatActivity() {
 
@@ -45,5 +46,34 @@ class SocioRegistradoActivity : AppCompatActivity() {
             startActivity(Intent(this, NuevoSocio::class.java))
             finish()
         }
+        // Configuración del BottomNavigationView
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_logout -> {
+                    // Navega a la actividad de inicio de sesión
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()  // Cierra la actividad actual para no volver al presionar atrás
+                    true
+                }
+                R.id.action_home -> {
+                    // Navega al dashboard
+                    val intent = Intent(this, dashboard::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.action_vencimientos -> {
+                    // Navega a la actividad de Vencimientos
+                    val intent = Intent(this, VencimientoDeCuota1::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
+
     }
 }

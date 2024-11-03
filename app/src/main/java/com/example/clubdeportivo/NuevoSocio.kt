@@ -3,6 +3,8 @@ package com.example.clubdeportivo
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
@@ -15,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity
 class NuevoSocio : AppCompatActivity() {
 
     private lateinit var dbHelper: DataBaseHelper
+    private val handler = Handler(Looper.getMainLooper())
+    private var dniRunnable: Runnable? = null
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,19 +37,26 @@ class NuevoSocio : AppCompatActivity() {
         val aptPhysicalSwitch = findViewById<Switch>(R.id.aptPhysicalSwitch)
         val socioSpinner = findViewById<Spinner>(R.id.socioSpinner)
 
-        // Verificación automática del DNI
+        // Verificación DNI
         dniEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                val dni = s.toString().toIntOrNull()
-                if (dni != null && dbHelper.socioExiste(dni)) {
-                    // Redirigir a la pantalla de socio existente
-                    val intent = Intent(this@NuevoSocio, SocioExistente::class.java)
-                    startActivity(intent)
+                // Cancelar la ejecución anterior si el usuario sigue escribiendo
+                dniRunnable?.let { handler.removeCallbacks(it) }
+                // Crear una nueva tarea para verificar el DNI después de 1 segundo
+                dniRunnable = Runnable {
+                    val dni = s.toString().toIntOrNull()
+                    if (dni != null && dbHelper.socioExiste(dni)) {
+                        // Redirigir a la pantalla de socio existente
+                        val intent = Intent(this@NuevoSocio, SocioExistente::class.java)
+                        startActivity(intent)
+                    }
                 }
+                // Ejecutar la tarea con un retardo de 1 segundo (1000 ms)
+                handler.postDelayed(dniRunnable!!, 1000)
             }
         })
 
@@ -91,8 +102,16 @@ class NuevoSocio : AppCompatActivity() {
                     val idSocio = dbHelper.insertarPersona(dni, nombre, apellido, direccion, telefono, email, aptoFisico, fechaAlta, esSocio)
 
                     if (idSocio > 0) {
-                        val intent = Intent(this, SocioRegistradoActivity::class.java)
-                        intent.putExtra("NOMBRE_SOCIO", "$nombre $apellido")
+                        // Redirigir a la actividad correspondiente en función de si es socio o no
+                        val intent = if (esSocio) {
+                            Intent(this, SocioRegistradoActivity::class.java).apply {
+                                putExtra("NOMBRE_SOCIO", "$nombre $apellido")
+                            }
+                        } else {
+                            Intent(this, NoSocioRegistrado::class.java).apply {
+                                putExtra("NOMBRE_SOCIO", "$nombre $apellido")
+                            }
+                        }
                         startActivity(intent)
                         finish()
                     } else {
