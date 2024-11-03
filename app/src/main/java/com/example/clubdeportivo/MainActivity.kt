@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             val usuarioValido = dbHelper.verificarUsuario(username, password)
             if (usuarioValido) {
                 // Inicio de sesión exitoso, redirige a la pantalla principal (DashboardActivity)
-                val intent = Intent(this, dashboard::class.java)
+                val intent = Intent(this, LoginExitoso::class.java)
                 startActivity(intent)
                 finish()
             } else {
