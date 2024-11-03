@@ -7,108 +7,174 @@
     android:background="@drawable/gradient_background"
     tools:context=".NuevoSocio">
 
-    <!-- Contenedor de fondo violeta -->
-    <LinearLayout
-        android:id="@+id/container_violeta"
+    <!-- ScrollView para habilitar el desplazamiento vertical -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:background="@color/purple_background"
-        android:gravity="center"
-        android:elevation="4dp"
-        app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.4"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/title"
-            android:text="Nuevo Socio"
-            style="@style/TitlePrimary"/>
+        <!-- ConstraintLayout que contiene todos los elementos -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!-- Subtítulo -->
-        <TextView
-            android:id="@+id/subtitle"
-            android:text="This is a short explanation about the new feature of the app."
-            style="@style/SubtitlePrimary"
-            />
-    </LinearLayout>
+            <!-- Contenedor de fondo violeta -->
+            <LinearLayout
+                android:id="@+id/container_violeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:background="@color/purple_background"
+                android:gravity="center"
+                android:elevation="4dp"
+                app:layout_constraintWidth_percent="1"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Nombre -->
+                <!-- Título principal -->
+                <TextView
+                    android:id="@+id/title"
+                    android:text="Nuevo Cliente"
+                    style="@style/TitlePrimary"/>
 
-    <!-- Apellido -->
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_marginTop="32dp"
-        android:hint="Nombre"
-        android:text="Pedro"
-        style="@style/InputPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_violeta"
-        tools:ignore="NotSibling" />
+                <!-- Subtítulo -->
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:text="En esta pantalla puedes dar de alta tanto un socio como un no socio"
+                    style="@style/SubtitlePrimary"/>
+            </LinearLayout>
 
-    <!-- DNI -->
+            <!-- Campo DNI -->
+            <EditText
+                android:id="@+id/dniEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="DNI"
+                android:inputType="number"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_violeta" />
 
-    <!-- Número de teléfono -->
+            <!-- Campo Nombre -->
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Nombre"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dniEditText" />
 
-    <!-- Botón Siguiente -->
-    <EditText
-        android:id="@+id/lastnameEditText"
-        style="@style/InputPrimary"
-        android:layout_marginTop="32dp"
-        android:hint="Apellido"
-        android:text="Lopez"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+            <!-- Campo Apellido -->
+            <EditText
+                android:id="@+id/lastnameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Apellido"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameEditText" />
 
-    <!-- Botón Volver -->
+            <!-- Campo Número de teléfono -->
+            <EditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Número de teléfono"
+                android:inputType="phone"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastnameEditText" />
 
-    <EditText
-        android:id="@+id/dniEditText"
-        style="@style/InputPrimary"
-        android:layout_marginTop="32dp"
-        android:hint="DNI"
-        android:inputType="number"
-        android:text="1234567"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lastnameEditText" />
+            <!-- Campo Dirección -->
+            <EditText
+                android:id="@+id/addressEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Dirección"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
 
-    <EditText
-        android:id="@+id/phoneEditText"
-        style="@style/InputPrimary"
-        android:layout_marginTop="32dp"
-        android:hint="Número de teléfono"
-        android:inputType="phone"
-        android:text="12325689"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dniEditText" />
+            <!-- Campo Email -->
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                style="@style/InputPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addressEditText" />
 
-    <Button
-        android:id="@+id/nextButton"
-        style="@style/ButtonPrimary"
-        android:layout_marginTop="104dp"
-        android:text="Siguiente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
+            <!-- Spinner Socio -->
+            <Spinner
+                android:id="@+id/socioSpinner"
+                android:layout_width="136dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/socio_options"
+                app:layout_constraintEnd_toStartOf="@id/aptPhysicalSwitch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailEditText" />
 
-    <Button
-        android:id="@+id/backButton"
-        style="@style/ButtonSecondary"
-        android:layout_marginTop="4dp"
-        android:text="Volver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nextButton" />
+            <!-- Switch Apto Físico -->
+            <Switch
+                android:id="@+id/aptPhysicalSwitch"
+                android:layout_width="119dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="60dp"
+                android:background="#E0E0E0"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:text="Apto Físico"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/socioSpinner"
+                app:layout_constraintTop_toBottomOf="@id/emailEditText"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Button
+                android:id="@+id/nextButton"
+                style="@style/ButtonPrimary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Dar de alta"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/aptPhysicalSwitch" />
+
+            <!-- Botón Volver -->
+            <Button
+                android:id="@+id/backButton"
+                style="@style/ButtonSecondary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Volver"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nextButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
