@@ -34,7 +34,7 @@
             style="@style/SubtitlePrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/this_is_a_short_explanation_about_the_new_feature_of_the_app" />
+            android:text="Consulta de vencimientos" />
     </LinearLayout>
 
     <!-- Campo de fecha Desde -->

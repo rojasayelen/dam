@@ -22,7 +22,7 @@
     <string name="mensaje_error_login">Usuario y/o contraseña\nson incorrectos</string>
     <string name="mensaje_credenciales_incorrectas">Vuelva a intentarlo</string>
     <string name="titulo_conexion_exitosa">Conexión Exítosa</string>
-    <string name="mensaje_continuarConexion">Para continuar preciona el botón</string>
+    <string name="mensaje_continuarConexion">Para continuar presioná el botón</string>
     <string name="titulo_loginCorrecto">Inicio de sesión correcto</string>
     <string name="button_imprimir_formulario">IMPRIMIR FORMULARIO\nPDF de inscripción</string>
     <string name="button_nuevo_socio">NUEVO SOCIO\nDar de alta</string>

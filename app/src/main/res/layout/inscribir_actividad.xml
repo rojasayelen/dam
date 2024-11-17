@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/description"
-            android:text="This is a short explanation about the new feature of the app."
+            android:text="Gestor de altas."
             style="@style/SubtitlePrimary"
             />
     </LinearLayout>

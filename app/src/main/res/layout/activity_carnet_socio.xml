@@ -32,7 +32,7 @@
             android:id="@+id/descripcion_adicional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is a short explanation about the \nnew feature of the app."
+            android:text="Gestor de Carnet."
             style="@style/SubtitlePrimary"
             />
     </LinearLayout>
